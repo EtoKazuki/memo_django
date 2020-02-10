@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Memo
+from .forms import MemoForm
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
@@ -12,4 +13,5 @@ def detail(request, memo_id):
     return render(request, 'app/detail.html', {'memo':memo})
 
 def new_memo(request):
-    return render(request, 'app/new_memo.html')
+	form = MemoForm
+    return render(request, 'app/new_memo.html', {'form':form})
